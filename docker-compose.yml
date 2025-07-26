@@ -1,0 +1,22 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        env_file:
+            - .env
+        environment:
+            - APP_MODE=dev
+        stdin_open: true
+        tty: true
+
+        volumes:
+            - .:/app
+            - /app/.venv
+            - chroma_data:/app/chroma_data
+            - ./logs:/app/logs
+
+volumes:
+    chroma_data:

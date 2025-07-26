@@ -1,0 +1,45 @@
+
+Your task is to process the provided document and convert it into a plain text (`.txt`) format suitable for a Retrieval-Augmented Generation (RAG) application. Your primary directive is **absolute fidelity** to the source document.
+
+**Critical Overarching Rule: Absolute Fidelity to the Source**
+The provided document is your **only source of truth**. You are strictly forbidden from using your general knowledge to add, correct, explain, or complete any information.
+*   If the source text appears to have errors, typos, or incomplete sentences, you must **transcribe them exactly as they appear**.
+*   Do not generate any text to "complete a thought" or "provide context" unless that text is already present in the source. Your role is **transcription and reformatting only**, not content creation or curation.
+
+**1. Structural Division:**
+*   Divide the entire content into two primary sections: `Part One: Information` and `Part Two: Q&A`.
+
+**2. Part One (Information):**
+*   This section must contain all informational content, including the main story text, vocabulary, learning outcomes, author biography, and introductory summary.
+*   Transcribe the original text **verbatim** without any alteration or summarization.
+
+**3. Part Two (Q&A):**
+*   This section must contain all questions from the document.
+*   Convert every question into a direct question-and-answer format.
+*   **For Multiple Choice Questions (MCQs):** Discard all incorrect options. Write only the question followed by the single correct answer.
+*   **For Creative/Essay-Style Questions:** Present the question, and then provide the full, verbatim text from the "Solution" (Samadhan) section as the answer.
+*   Preserve any metadata associated with the questions (e.g., `[Dhaka Board: 2022]`) and any "Explanations," transcribing them exactly as they appear.
+
+**4. Formatting and Contextual Chunking Rules:**
+*   The output must be entirely plain text (`.txt`) friendly. Do not use any Markdown formatting.
+*   Use **double line breaks** to separate meaningful contextual chunks. The definition of a "meaningful contextual chunk" varies by content type:
+
+    *   **A) Narrative Prose Chunking (for the `Mul Golpo` / Main Story):**
+        *   Your goal is to create contextually balanced chunks. To do this, you will group sentences together.
+        *   A chunk must have a **minimum of 5 sentences** and a **maximum of 10 sentences**.
+        *   Create chunks by adding complete sentences until you are within the 5-10 sentence range.
+        *   The chunk **must end at a sentence boundary** (i.e., after a period, question mark, or exclamation point). Never split a sentence.
+        *   **Example Logic:** Start counting sentences. Once you have at least 5 sentences, the chunk is valid. Continue adding sentences until you are as close to 10 as possible without exceeding it. Then, end the chunk and start a new one with the next sentence. If a single paragraph contains more than 10 sentences, it must be split into multiple chunks according to this rule.
+
+    *   **B) Itemized and Fact-Based Content Chunking:**
+        *   **Separation (Default Rule):** Treat each distinct, self-contained fact or item as an **individual chunk**. This applies to the `লেখক পরিচিতি` (Author Biography), where each sub-point (`নাম`, `জন্ম পরিচয়`, etc.) is its own chunk, and the `শব্দার্থ ও টীকা` (Vocabulary) list, where each term and its definition is a separate chunk.
+        *   **Grouping (Exception):** Group multiple items into a single chunk **only when the collective list itself is the complete, meaningful unit of information.** For example, the entire `শিখনফল` (Learning Outcomes) list should be treated as **one single chunk**.
+
+    *   **C) Q&A Chunking:**
+        *   **Standard Questions:** Treat each question and its complete answer (including all metadata) as a single, self-contained chunk.
+        *   **Questions with a Stimulus (`উদ্দীপক`):** For questions that rely on a shared `উদ্দীপক`, create a separate, self-contained chunk for **each individual question**. Each of these chunks **must repeat the full text of the `উদ্দীপক`**, followed by the single question and its corresponding answer. This duplication is mandatory.
+
+**5. Final Constraints (Reinforcement):**
+*   **No Commentary:** Do not add any of your own comments, summaries, or explanatory notes.
+*   **Preserve Language:** The language of the content must remain unchanged from the source (Bengali). Do not translate.
+*   **Preserve Order:** Maintain the original sequence of all content as it appears in the source document.

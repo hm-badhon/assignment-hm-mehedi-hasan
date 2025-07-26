@@ -1,0 +1,35 @@
+model:
+  provider: "gemini"
+  name: "gemini-2.5-flash"
+  temperature: 0.7
+  timeout_seconds: 60
+
+processing:
+  batch_size: 1
+  retry_attempts: 3
+  retry_delay: 1
+
+rate_limit:
+  max_requests: 100
+  window_seconds: 3600
+
+embedding:
+  provider: "gemini"
+  model: "gemini-embedding-001"
+
+io:
+  data_dir: "data"
+  encoding: "utf-8"
+
+logging:
+  level: "INFO"
+  file: "logs/log.txt"
+
+chroma:
+  host: "chroma"
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  workers: 1
