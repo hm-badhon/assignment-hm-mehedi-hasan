@@ -1,0 +1,50 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "assignment-badhon"
+version = "0.1.0"
+description = ""
+authors = ["Badhon"]
+readme = "README.md"
+packages = [
+  { include = "api", from = "src" },
+  { include = "database", from = "src" },
+  { include = "services", from = "src" },
+  { include = "utils", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+fastapi = "*"
+uvicorn = "*"
+pydantic = "*"
+pydantic-settings = "*"
+pyyaml = "*"
+google-generativeai = "*"
+google-genai = "*"
+langchain-google-genai = "*"
+langchain-text-splitters = "*"
+langchain = "*"
+langchain-community = "*"
+chromadb = "*"
+langgraph = "*"
+requests = "*"
+aiofiles = "*"
+
+[tool.poetry.group.dev]
+optional = false
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "*"
+black = "*"
+mypy = "*"
+pytest = "*"
+isort = "*"
+build = "*"
+ruff = "*"
+
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
